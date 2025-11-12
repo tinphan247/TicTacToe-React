@@ -1,0 +1,159 @@
+.container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.title {
+  color: white;
+}
+
+.board {
+  display: inline-block;
+  margin-top: 20px;
+}
+.reset {
+  display: block;
+  margin: 20px auto; /* căn giữa màn hình, tách khỏi info */
+  padding: 8px 16px;
+  background-color: #00ffcc;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.boxes {
+  width: 120px;              /* tăng kích thước ô */
+  height: 120px;
+  border: 2px solid white;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  line-height: 120px;        /* căn chữ theo chiều dọc */
+  font-size: 60px;           /* chữ X/O to hơn */
+  cursor: pointer;
+  color: #00ffcc;
+  font-weight: bold;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.row1, .row2, .row3 {
+  display: flex;
+  justify-content: center;
+}
+
+.highlight {
+  background-color: #00ffcc33;
+}
+
+.reset, .sort {
+  margin-top: 15px;
+  padding: 8px 16px;
+  background-color: #00ffcc;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.info {
+  margin-top: 20px;
+  color: white;
+}
+
+.status {
+  margin-bottom: 10px;
+}
+.x-symbol {
+  color: #ff0000; /* đỏ cam */
+  font-weight: bold;
+}
+
+.o-symbol {
+  color: #ffffff; /* xanh dương nhạt */
+  font-weight: bold;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: row; 
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 20px;
+}  
+
+.board {
+  margin-right: 40px; /* khoảng cách sang phải cho info */
+}
+
+.info {
+  color: rgb(255, 255, 255);
+  max-width: 200px;
+}
+
+.status {
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+ul {
+  list-style: none; /* xóa dấu đầu dòng */
+  padding-left: 0;  /* bỏ padding mặc định */
+  margin: 0;
+}
+.moves-container {
+  background-color: #1f3450;   /* màu nền khung */
+  border: 2px solid #26ffcb;   /* viền khung */
+  border-radius: 10px;
+  padding: 10px;
+  width: 200px;                /* cố định chiều rộng */
+  height: 240px;               /* cố định chiều cao */
+  overflow-y: auto;            /* xuất hiện scroll khi nhiều nước đi */
+  margin-top: 50px;
+  box-sizing: border-box;
+}
+.moves-container .sort {
+  display: block;
+  width: 100%;           /* kéo full width khung */
+  text-align: center;
+  margin-bottom: 10px;   /* khoảng cách dưới nút trước danh sách */
+  padding: 6px 0;
+  background-color: #00ffcc;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.moves-container ul {
+  list-style: none;  /* xóa số/dấu chấm */
+  padding-left: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column; /* xếp từ trên xuống */
+  align-items: stretch;   /* kéo các nút full width */
+}
+
+.moves-container li {
+  margin-bottom: 5px;
+}
+
+.moves-container li span,
+.moves-container li button {
+  display: block;
+  width: 100%;
+  text-align: left;       /* căn chữ trái */
+  padding: 5px 8px;
+  background-color: #0f1b21;
+  border: 1px solid #26ffcb;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.moves-container li span {
+  background-color: #1f3450; /* khác màu cho nước đi hiện tại */
+  cursor: default;
+}
+
+
