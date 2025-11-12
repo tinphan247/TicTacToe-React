@@ -1,147 +1,123 @@
+/* Container chính */
 .container {
   text-align: center;
-  margin-top: 30px;
+  margin-top: 20px;
+  padding: 0 10px;
 }
 
+/* Tiêu đề */
 .title {
   color: white;
+  font-size: 2rem;
 }
 
-.board {
-  display: inline-block;
+/* Khung tổng: bàn cờ + history */
+.game-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;       /* khi màn hình hẹp, history xuống dưới */
+  gap: 20px;             /* khoảng cách giữa bàn cờ và history */
   margin-top: 20px;
 }
-.reset {
-  display: block;
-  margin: 20px auto; /* căn giữa màn hình, tách khỏi info */
-  padding: 8px 16px;
-  background-color: #00ffcc;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+
+/* Bàn cờ */
+.board {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
+/* Hàng ô */
+.row1, .row2, .row3 {
+  display: flex;
+  justify-content: center;
+  gap: 5px;  /* khoảng cách giữa các ô */
+}
+
+/* Ô vuông */
 .boxes {
-  width: 120px;              /* tăng kích thước ô */
-  height: 120px;
+  width: 15vw;
+  height: 15vw;
+  max-width: 120px;
+  max-height: 120px;
+  min-width: 60px;
+  min-height: 60px;
+
+  display: flex;             /* flex layout */
+  justify-content: center;   /* căn ngang giữa */
+  align-items: center;       /* căn dọc giữa */
+
+  font-size: 7vw;
+  max-font-size: 60px;
+  min-font-size: 30px;
+
   border: 2px solid white;
-  display: inline-block;
-  vertical-align: top;
-  text-align: center;
-  line-height: 120px;        /* căn chữ theo chiều dọc */
-  font-size: 60px;           /* chữ X/O to hơn */
+  text-align: center;        /* backup */
   cursor: pointer;
-  color: #00ffcc;
   font-weight: bold;
+  color: #00ffcc;
   user-select: none;
   box-sizing: border-box;
 }
 
-.row1, .row2, .row3 {
-  display: flex;
-  justify-content: center;
-}
 
 .highlight {
   background-color: #00ffcc33;
 }
 
-.reset, .sort {
-  margin-top: 15px;
-  padding: 8px 16px;
-  background-color: #00ffcc;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.info {
-  margin-top: 20px;
-  color: white;
-}
-
-.status {
-  margin-bottom: 10px;
-}
-.x-symbol {
-  color: #ff0000; /* đỏ cam */
-  font-weight: bold;
-}
-
-.o-symbol {
-  color: #ffffff; /* xanh dương nhạt */
-  font-weight: bold;
-}
-
-.game-container {
-  display: flex;
-  flex-direction: row; 
-  justify-content: center;
-  align-items: flex-start;
-  margin-top: 20px;
-}  
-
-.board {
-  margin-right: 40px; /* khoảng cách sang phải cho info */
-}
-
-.info {
-  color: rgb(255, 255, 255);
-  max-width: 200px;
-}
-
+/* Trạng thái người thắng */
 .status {
   color: white;
-  font-size: 24px;
+  font-size: 1.5rem;
+  margin: 10px 0;
   text-align: center;
-  margin: 20px 0;
 }
 
-ul {
-  list-style: none; /* xóa dấu đầu dòng */
-  padding-left: 0;  /* bỏ padding mặc định */
-  margin: 0;
-}
+/* Khung history move */
 .moves-container {
-  background-color: #1f3450;   /* màu nền khung */
-  border: 2px solid #26ffcb;   /* viền khung */
-  border-radius: 10px;
+  max-width: 220px;
+  width: 25vw;           /* responsive theo màn hình */
+  min-width: 180px;
+  height: 240px;
+  overflow-y: auto;      /* scroll khi nhiều move */
   padding: 10px;
-  width: 200px;                /* cố định chiều rộng */
-  height: 240px;               /* cố định chiều cao */
-  overflow-y: auto;            /* xuất hiện scroll khi nhiều nước đi */
-  margin-top: 50px;
+  border: 2px solid #26ffcb;
+  border-radius: 10px;
+  background-color: #1f3450;
   box-sizing: border-box;
 }
+
+/* Nút Sort trong history */
 .moves-container .sort {
   display: block;
-  width: 100%;           /* kéo full width khung */
+  width: 100%;
   text-align: center;
-  margin-bottom: 10px;   /* khoảng cách dưới nút trước danh sách */
+  margin-bottom: 10px;
   padding: 6px 0;
   background-color: #00ffcc;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 1rem;
 }
 
+/* Danh sách move */
 .moves-container ul {
-  list-style: none;  /* xóa số/dấu chấm */
+  list-style: none;
   padding-left: 0;
   margin: 0;
   display: flex;
-  flex-direction: column; /* xếp từ trên xuống */
-  align-items: stretch;   /* kéo các nút full width */
-}
-
-.moves-container li {
-  margin-bottom: 5px;
+  flex-direction: column;
+  align-items: stretch;
 }
 
 .moves-container li span,
 .moves-container li button {
   display: block;
   width: 100%;
-  text-align: left;       /* căn chữ trái */
+  text-align: left;
   padding: 5px 8px;
   background-color: #0f1b21;
   border: 1px solid #26ffcb;
@@ -152,8 +128,60 @@ ul {
 }
 
 .moves-container li span {
-  background-color: #1f3450; /* khác màu cho nước đi hiện tại */
+  background-color: #1f3450; /* nước đi hiện tại */
   cursor: default;
 }
 
+/* Nút Reset */
+.reset {
+  display: block;
+  margin: 20px auto;
+  padding: 8px 16px;
+  background-color: #00ffcc;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
 
+/* X/O màu riêng */
+.x-symbol { color: #ff4500; font-weight: bold; } /* đỏ cam */
+.o-symbol { color: #1e90ff; font-weight: bold; } /* xanh dương */
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  .game-container {
+    flex-direction: column; /* history xuống dưới */
+    align-items: center;
+  }
+
+  .moves-container {
+    width: 60vw;
+    max-width: none;
+  }
+
+  .boxes {
+    width: 20vw;
+    height: 20vw;
+    line-height: 20vw;
+    font-size: 10vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .boxes {
+    width: 25vw;
+    height: 25vw;
+    line-height: 25vw;
+    font-size: 12vw;
+  }
+
+  .moves-container {
+    width: 80vw;
+    height: 200px;
+  }
+
+  .reset, .moves-container .sort {
+    width: 80%;
+  }
+}
